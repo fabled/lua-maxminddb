@@ -81,8 +81,7 @@ static int mmdbres_get(lua_State *L)
 
 	switch (data.type) {
 	case MMDB_DATA_TYPE_BYTES:
-		lua_pushlstring(L, data.bytes, data.data_size);
-		return 1;
+		lua_pushlstring(L, (const char *)data.bytes, data.data_size);
 		return 1;
 	case MMDB_DATA_TYPE_UTF8_STRING:
 		lua_pushlstring(L, data.utf8_string, data.data_size);
